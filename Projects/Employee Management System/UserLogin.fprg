@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Sujith"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-02-04 08:07:07 PM"/>
+        <attribute name="created" value="U3VqaXRoOyBERVNLVE9QLU9DQkRTNlI7IDIwMjEtMDItMDE7IDA3OjI5OjA0IFBNOyAzMDgz"/>
+        <attribute name="edited" value="U3VqaXRoOyBERVNLVE9QLU9DQkRTNlI7IDIwMjEtMDItMDI7IDAxOjIyOjQxIEFNOyAzMDU3"/>
+        <attribute name="edited" value="d2VsY29tZTtERVNLVE9QLUw1VDAxRUQ7MjAyMS0wMi0wNDswODowNzowNyBQTTs3MTszMjE4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n1, n2, i, s" type="Integer" array="False" size=""/>
+            <declare name="choice, events" type="String" array="False" size=""/>
+            <output expression="&quot;Number of users:&quot;" newline="True"/>
+            <assign variable="events" expression="&quot;1 Jan New Year's Day&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;13 Jan Lohri&quot;&amp;Tochar(13)&amp;&#9;&#13;&#10;&quot;14 Jan&#9;Pongol&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;14 Jan&#9;Makar Sankranti&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;26 Jan&#9;Republic Day&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;14 Feb&#9;Valentine's Day&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;16 Feb&#9;Vasant Panchami&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;19 Feb&#9;Shivaji Jayanti&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;26 Feb&#9;Hazarat Ali's&quot;&amp;Tochar(13)&amp; &#9;&quot;11 Mar&#9;MahaShivaratri&quot;&amp;Tochar(13)&amp;&#9;&#13;&#10;&quot;29 Mar&#9;Holi&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;2  Apr&#9;Good Friday&quot;&amp;Tochar(13)&amp;&#9;&#13;&#10;&quot;4  Apr&#9;Easter Day&quot;&amp;Tochar(13)&amp;&#9;&#9;&#13;&#10;&quot;25 Apr&#9;Mahavir Jayanti&#9;&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;1  May&#9;May Day&#9;&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;7  May&#9;Jamat Ul-Vida&quot;&amp;Tochar(13)&amp;&#9;&#13;&#10;&quot;14 May Ramzan Id&quot;&amp;Tochar(13)&amp;&#9;&#13;&#10;&quot;15 Aug&#9;Independence Day&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;19 Aug&#9;Muharram/Ashura &quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;21 Aug&#9;Onam&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;30 Aug&#9;Janmashtami&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;10 Sep&#9;Ganesh Chaturthi&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;2  Oct&#9;Gandhi Jayanti&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;13 Oct&#9;Maha Ashtami&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;14 Oct&#9;Maha Navami&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;15 Oct&#9;Dussehra&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;19 Oct&#9;Milad un-Nabi&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;4  Nov Diwali&quot;&amp;Tochar(13)&amp;&#13;&#10;&quot;25 Dec Christmas&quot;&amp;Tochar(13)"/>
+            <do expression="n1&lt;=0">
+                <input variable="n1"/>
+            </do>
+            <declare name="UID, UPass" type="String" array="True" size="n1"/>
+            <for variable="i" start="0" end="n1-1" direction="inc" step="1">
+                <output expression="&quot;User ID &quot;&amp;i+1&amp;&quot;:&quot;" newline="True"/>
+                <input variable="UID[i]"/>
+                <output expression="&quot;Password&quot;" newline="True"/>
+                <input variable="UPass[i]"/>
+            </for>
+            <output expression="&quot;Number of Admins:&quot;" newline="True"/>
+            <do expression="n2&lt;=0">
+                <input variable="n2"/>
+            </do>
+            <declare name="AID, APass" type="String" array="True" size="n2"/>
+            <for variable="i" start="0" end="n2-1" direction="inc" step="1">
+                <output expression="&quot;Admin ID &quot;&amp;i+1&amp;&quot;:&quot;" newline="True"/>
+                <input variable="AID[i]"/>
+                <output expression="&quot;Password&quot;" newline="True"/>
+                <input variable="APass[i]"/>
+            </for>
+            <output expression="&quot;Choose 1 if you're an Admin or Choose 2 if you're a User&quot;" newline="True"/>
+            <do expression="choice==&quot;Y&quot; || choice==&quot;Yes&quot; || choice==&quot;yes&quot;">
+                <input variable="choice"/>
+                <if expression="choice==&quot;1&quot;">
+                    <then>
+                        <assign variable="s" expression="login(AID,Apass)"/>
+                    </then>
+                    <else>
+                        <if expression="choice==&quot;2&quot;">
+                            <then>
+                                <assign variable="s" expression="login(UID,Upass)"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Invalid choice. Try again.&quot;" newline="True"/>
+                                <output expression="&quot;Do you want to try again? (Y/N)&quot;" newline="True"/>
+                                <input variable="choice"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+            <if expression="Choice==&quot;1&quot;">
+                <then>
+                    <call expression="adminpanel(AID,APass,s,events)&#13;&#10;"/>
+                </then>
+                <else>
+                    <if expression="choice==&quot;2&quot;">
+                        <then>
+                            <call expression="userpanel(UID,UPass,s,events)"/>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="adminpanel" type="None" variable="">
+        <parameters>
+            <parameter name="idlist" type="String" array="True"/>
+            <parameter name="passwords" type="String" array="True"/>
+            <parameter name="index" type="Integer" array="False"/>
+            <parameter name="event" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ch1, j" type="Integer" array="False" size=""/>
+            <output expression="&quot;What would you like to do?&quot;&amp;tochar(13)&amp;&quot;1. Update Password&quot;&amp;tochar(13)&amp;&quot;2. Manage Personal Information&quot;&amp;tochar(13)&amp;&quot;3. View Salary&quot;&amp;tochar(13)&amp;&quot;4. Manage Attendance&quot;&amp;tochar(13)&amp;&quot;5. View Events&quot;&amp;tochar(13)&amp;&quot;6. Manage Leave&quot;&amp;tochar(13)&amp;&quot;7. Logout&quot;" newline="True"/>
+            <input variable="ch1"/>
+            <if expression="ch1=1">
+                <then/>
+                <else>
+                    <if expression="ch1=5">
+                        <then>
+                            <declare name="dec" type="String" array="False" size=""/>
+                            <output expression="&quot;Do you want to add an event (Y/N)&quot;" newline="True"/>
+                            <input variable="dec"/>
+                            <if expression="dec=&quot;Y&quot;">
+                                <then>
+                                    <input variable="dec"/>
+                                    <assign variable="event" expression="event&amp;Tochar(13)&amp;dec"/>
+                                    <output expression="event" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="login" type="Integer" variable="index">
+        <parameters>
+            <parameter name="idlist" type="String" array="True"/>
+            <parameter name="passwords" type="String" array="True"/>
+        </parameters>
+        <body>
+            <declare name="id, pass" type="String" array="False" size=""/>
+            <declare name="temp, index" type="Integer" array="False" size=""/>
+            <output expression="&quot;Login&quot;" newline="True"/>
+            <do expression="index==-1">
+                <output expression="&quot;Enter Employee ID:&quot;" newline="True"/>
+                <input variable="id"/>
+                <assign variable="index" expression="search(idlist,id)"/>
+                <if expression="index=-1">
+                    <then>
+                        <output expression="&quot;Invalid id. Try Again.&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </do>
+            <assign variable="temp" expression="0"/>
+            <do expression="temp==0">
+                <output expression="&quot;Enter password:&quot;" newline="True"/>
+                <input variable="pass"/>
+                <if expression="pass==passwords[index]">
+                    <then>
+                        <assign variable="temp" expression="1"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Password doesn't match. Try again.&quot;" newline="True"/>
+                        <assign variable="temp" expression="0"/>
+                    </else>
+                </if>
+            </do>
+            <output expression="&quot;Login successful!&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="search" type="Integer" variable="x">
+        <parameters>
+            <parameter name="array" type="String" array="True"/>
+            <parameter name="searchitem" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i, x, count" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <assign variable="count" expression="0"/>
+            <while expression="i&lt;size(array)">
+                <if expression="searchitem==array[i]">
+                    <then>
+                        <assign variable="x" expression="i"/>
+                    </then>
+                    <else>
+                        <assign variable="count" expression="count+1"/>
+                    </else>
+                </if>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <if expression="count&lt;size(array)">
+                <then/>
+                <else>
+                    <assign variable="x" expression="-1"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="updatepass" type="None" variable="">
+        <parameters>
+            <parameter name="passwords" type="String" array="True"/>
+            <parameter name="index" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="inputdata, temp" type="String" array="False" size=""/>
+            <declare name="flag" type="Boolean" array="False" size=""/>
+            <assign variable="flag" expression="true"/>
+            <do expression="flag">
+                <output expression="&quot;Input old password&quot;" newline="True"/>
+                <input variable="inputdata"/>
+                <if expression="inputdata==passwords[index]">
+                    <then>
+                        <output expression="&quot;Enter New Password&quot;" newline="True"/>
+                        <input variable="inputdata"/>
+                        <assign variable="temp" expression="inputdata"/>
+                        <do expression="flag">
+                            <output expression="&quot;Confirm New Password&quot;" newline="True"/>
+                            <input variable="inputdata"/>
+                            <if expression="inputdata==temp">
+                                <then>
+                                    <assign variable="passwords[index]" expression="temp"/>
+                                    <output expression="&quot;Your Password has been Successfully Updated&quot;" newline="True"/>
+                                    <assign variable="flag" expression="false"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Passwords don't match. Try again.&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </do>
+                    </then>
+                    <else>
+                        <output expression="&quot;Passwords don't match. Try again.&quot;" newline="True"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="userpanel" type="None" variable="">
+        <parameters>
+            <parameter name="idlist" type="String" array="True"/>
+            <parameter name="passwords" type="String" array="True"/>
+            <parameter name="index" type="Integer" array="False"/>
+            <parameter name="event" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="ch, i" type="Integer" array="False" size=""/>
+            <output expression="&quot;What would you like to do?&quot;&amp;tochar(13)&amp;&quot;1. Update Password&quot;&amp;tochar(13)&amp;&quot;2. Manage Personal Information&quot;&amp;tochar(13)&amp;&quot;3. View Salary&quot;&amp;tochar(13)&amp;&quot;4. Manage Attendance&quot;&amp;tochar(13)&amp;&quot;5. View Events&quot;&amp;tochar(13)&amp;&quot;6. Manage Leave&quot;&amp;tochar(13)&amp;&quot;7. Logout&quot;" newline="True"/>
+            <input variable="ch"/>
+            <if expression="ch==1">
+                <then>
+                    <output expression="&quot;Update Password&quot;" newline="True"/>
+                    <call expression="updatepass(passwords,index)"/>
+                </then>
+                <else>
+                    <if expression="ch=5">
+                        <then>
+                            <output expression="event" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
